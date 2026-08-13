@@ -29,8 +29,8 @@ window.addEventListener("scroll", function () { header?.classList.toggle("is-scr
 document.querySelectorAll("[data-year]").forEach(function (node) { node.textContent = String(new Date().getFullYear()); });
 
 const reveals = document.querySelectorAll("[data-reveal]");
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(function (entries) {
+if ("Intersection사용 행동 관찰r" in window) {
+  const observer = new Intersection사용 행동 관찰r(function (entries) {
     entries.forEach(function (entry) {
       if (!entry.isIntersecting) return;
       entry.target.classList.add("is-visible");
@@ -55,7 +55,7 @@ document.querySelectorAll("[data-tabs]").forEach(function (group) {
 document.querySelectorAll("form[data-prototype-form]").forEach(function (form) {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-    showToast("Prototype interaction입니다. 입력 정보는 저장되거나 전송되지 않습니다.");
+    showToast("화면 동작 예시입니다. 입력 정보는 저장되거나 전송되지 않습니다.");
   });
 });
 
@@ -64,7 +64,7 @@ document.addEventListener("click", function (event) {
   if (mock) showToast(mock.dataset.mockAction || "현재는 prototype interaction입니다.");
 });
 
-const services=[{"name":"WWW","domain":"www.hbkr.net","type":"Public Landing","scope":"AI/AX narrative + service gateway"},{"name":"WORK","domain":"work.hbkr.net","type":"Marketplace Prototype","scope":"Talent · Project · Match"},{"name":"OPS","domain":"ops.hbkr.net","type":"System Prototype","scope":"Discovery · Scope · Delivery"},{"name":"CAFE","domain":"cafe.hbkr.net","type":"Community Prototype","scope":"Community · Vertical · Evidence"},{"name":"LEARN","domain":"learn.hbkr.net","type":"Learning Prototype","scope":"Foundation · Applied · Builder"},{"name":"LAB","domain":"lab.hbkr.net","type":"Lab Prototype","scope":"Experiment · Field Test · Evidence"},{"name":"ID","domain":"id.hbkr.net","type":"Identity Prototype","scope":"Member · Role · Visibility"},{"name":"API","domain":"api.hbkr.net","type":"Contract Prototype","scope":"Taxonomy · Schema · Match"},{"name":"STATUS","domain":"status.hbkr.net","type":"Static Status","scope":"Public endpoint reachability"}];const grid=document.getElementById("statusGrid");
+const services=[{"name":"WWW","domain":"www.hbkr.net","type":"공개 소개 화면","scope":"AI/AX narrative + service gateway"},{"name":"WORK","domain":"work.hbkr.net","type":"인재·프로젝트 연결 화면","scope":"AI 실무자 · 프로젝트 · 추천 이유"},{"name":"OPS","domain":"ops.hbkr.net","type":"프로젝트 운영 화면","scope":"사전 진단 · 범위 · 수행"},{"name":"CAFE","domain":"cafe.hbkr.net","type":"커뮤니티 화면","scope":"커뮤니티 · 주제 모임 · 활동 기록"},{"name":"LEARN","domain":"learn.hbkr.net","type":"학습 화면","scope":"기초 실습 · 업무 적용 · 직접 만들기"},{"name":"LAB","domain":"lab.hbkr.net","type":"실험·검증 화면","scope":"실험 · 현장 검증 · 결과 기록"},{"name":"ID","domain":"id.hbkr.net","type":"회원·역할 화면","scope":"회원 · 역할 · 공개 범위"},{"name":"API","domain":"api.hbkr.net","type":"데이터 기준 화면","scope":"분류 기준 · 데이터 구조 · 추천 비교"},{"name":"STATUS","domain":"status.hbkr.net","type":"화면 접속 상태","scope":"공개 화면 접속 여부"}];const grid=document.getElementById("statusGrid");
 function renderStatus(){grid.innerHTML=services.map(function(service){return '<article class="status-card" data-status-domain="'+service.domain+'"><header><span class="tag">'+service.type+'</span><span class="status-dot"></span></header><h3>'+service.name+'</h3><p>'+service.domain+'</p><p style="margin-top:8px">'+service.scope+'</p><a href="https://'+service.domain+'/">OPEN SERVICE ↗</a></article>';}).join("");}
 async function checkStatus(){document.getElementById("statusTime").textContent="CHECKING";let up=0;await Promise.all(services.map(async function(service){const card=document.querySelector('[data-status-domain="'+service.domain+'"]');const dot=card.querySelector(".status-dot");try{await fetch("https://"+service.domain+"/?status="+Date.now(),{mode:"no-cors",cache:"no-store"});dot.classList.add("is-up");dot.classList.remove("is-down");up+=1;}catch(error){dot.classList.add("is-down");dot.classList.remove("is-up");}}));document.getElementById("upCount").textContent=String(up);document.getElementById("statusTime").textContent=new Intl.DateTimeFormat("ko-KR",{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());}
 document.getElementById("refreshStatus").addEventListener("click",checkStatus);renderStatus();checkStatus();
