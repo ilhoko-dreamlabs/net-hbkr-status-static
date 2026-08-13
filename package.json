@@ -1,0 +1,13 @@
+{
+  "name": "net-hbkr-status-static",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HBKR 공개 프로토타입 endpoint의 도달 가능성을 확인하는 정적 상태 페이지.",
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "dev": "node scripts/dev-server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

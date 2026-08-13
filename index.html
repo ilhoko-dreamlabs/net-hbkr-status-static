@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="HBKR 공개 프로토타입 endpoint의 도달 가능성을 확인하는 정적 상태 페이지.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#eef4ef">
+  <link rel="canonical" href="https://status.hbkr.net/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://status.hbkr.net/">
+  <meta property="og:title" content="HBKR STATUS | Prototype Availability">
+  <meta property="og:description" content="HBKR 공개 프로토타입 endpoint의 도달 가능성을 확인하는 정적 상태 페이지.">
+  <title>HBKR STATUS | Prototype Availability</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body data-service="status">
+  
+    <a class="skip-link" href="#main">본문으로 바로가기</a>
+    <header class="suite-header" data-header>
+      <a class="suite-brand" href="https://www.hbkr.net/" aria-label="HBKR 메인으로 이동">
+        <span class="brand-mark">H</span>
+        <span><strong>HBKR</strong><small>STATUS / PUBLIC</small></span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="suite-nav" data-menu-button><span>MENU</span><i></i></button>
+      <nav class="suite-nav" id="suite-nav" aria-label="HBKR 서비스" data-menu><a  href="https://www.hbkr.net/">WWW</a><a  href="https://work.hbkr.net/">WORK</a><a  href="https://cafe.hbkr.net/">CAFE</a><a  href="https://learn.hbkr.net/">LEARN</a><a  href="https://lab.hbkr.net/">LAB</a></nav>
+      <a class="status-link" href="https://status.hbkr.net/">SYSTEM STATUS <span></span></a>
+    </header>
+    <div class="prototype-bar">
+      <span>PUBLIC EXPERIENCE PROTOTYPE</span>
+      <p>Mock data · No backend · No transaction</p>
+      <strong>status.hbkr.net</strong>
+    </div>
+  <main id="main">
+  <section class="hero"><div class="hero-split"><div class="hero-copy" data-reveal><p class="eyebrow">HBKR STATUS / PUBLIC PROTOTYPE ENDPOINTS</p><h1>9개의 화면,<br>하나의<br><em>실행 구조.</em></h1><p class="hero-lead">이 페이지는 각 HBKR prototype URL의 공개 도달 가능성만 확인합니다. Backend, Database, 실제 기능 또는 사업 운영 상태를 의미하지 않습니다.</p><div class="hero-actions"><button class="button button-primary" id="refreshStatus" type="button">Endpoint 다시 확인</button><a class="button button-secondary" href="https://www.hbkr.net/architecture.html">Architecture</a></div><div class="micro-line"><span>CLIENT-SIDE CHECK</span><span>NO UPTIME SLA</span><span>STATIC PAGES</span></div></div><aside class="hero-panel" data-reveal><div class="panel-window"><header><span>REACHABILITY SUMMARY</span><span id="statusTime">CHECKING</span></header><div class="panel-body"><p class="panel-label">PUBLIC ENDPOINT RESPONSE</p><h2><span id="upCount">0</span> / 9<br>prototype pages</h2><div class="analysis-grid"><div class="analysis-card"><strong>CHECKS</strong><p>DNS + HTTPS page response</p></div><div class="analysis-card"><strong>DOES NOT CHECK</strong><p>Database · Auth · API · Business Ops</p></div></div></div></div></aside></div></section>
+
+  <section class="section"><div class="section-head" data-reveal><div><span class="section-index">01 / SERVICE REGISTRY</span><h2>각 서비스의 목적과<br><em>현재 공개 범위.</em></h2></div><p>브라우저에서 각 URL에 요청을 보내 도달 여부를 표시합니다. Network 정책에 따라 실제 페이지가 정상이어도 확인 실패로 표시될 수 있습니다.</p></div><div class="status-grid" id="statusGrid" aria-live="polite"></div></section>
+
+  <section class="section"><div class="section-head" data-reveal><div><span class="section-index">02 / AVAILABILITY BOUNDARY</span><h2>초록 점은<br><em>제품 완성을 뜻하지 않습니다.</em></h2></div><p>현재 모든 서비스는 정적 prototype입니다. 사용자의 리뷰와 운영 검증을 위한 화면이며 실제 Identity, Data, API, Matching, Contract 기능은 연결되지 않았습니다.</p></div><div class="ledger" data-reveal><div class="ledger-row"><span>AVAILABLE</span><p>DNS와 GitHub Pages를 통해 정적 HTML 응답 가능</p><strong>PUBLIC REACHABILITY</strong></div><div class="ledger-row"><span>PROTOTYPE</span><p>Navigation, Filter, Mock Interaction과 정보 구조 확인 가능</p><strong>UX REVIEW</strong></div><div class="ledger-row"><span>NOT LIVE</span><p>Backend, Database, OAuth, Payment, LLM API, Production workflow 없음</p><strong>NO RUNTIME</strong></div><div class="ledger-row"><span>NEXT</span><p>사용자 리뷰 후 수익 우선 P0 범위 하나를 실제 MVP로 전환</p><strong>DECISION REQUIRED</strong></div></div></section></main>
+  
+    <footer class="suite-footer">
+      <div><span class="brand-mark brand-mark-small">H</span><p><strong>HBKR STATUS</strong><small>Learn. Build. Prove. Work.</small></p></div>
+      <nav aria-label="전체 서비스"><a  href="https://www.hbkr.net/">WWW</a><a  href="https://work.hbkr.net/">WORK</a><a  href="https://ops.hbkr.net/">OPS</a><a  href="https://cafe.hbkr.net/">CAFE</a><a  href="https://learn.hbkr.net/">LEARN</a><a  href="https://lab.hbkr.net/">LAB</a><a  href="https://id.hbkr.net/">ID</a><a  href="https://api.hbkr.net/">API</a><a class="is-active" href="https://status.hbkr.net/">STATUS</a></nav>
+      <p class="footer-note">현재 화면은 구조와 경험 검토용 prototype입니다.<br>실제 계정·계약·결제·운영 데이터는 연결되지 않았습니다.</p>
+      <small>© <span data-year></span> HBKR. Built from the HungryBoxer memory.</small>
+    </footer>
+    <div class="toast" role="status" aria-live="polite" data-toast></div>
+  
+</body>
+</html>
